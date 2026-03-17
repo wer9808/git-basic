@@ -98,6 +98,36 @@ git branch 명령어를 통해 현재 저장소의 브랜치 목록을 조회할
 git branch [-a] [-v]
 ```
 
+-d 옵션을 이용하면 브랜치를 제거할 수 있다.
+
+```bash
+git branch -d <branch>
+```
+
 ## git checkout
 
 git checkout 명령어를 통해 브랜치를 변경할 수 있다.
+
+```bash
+git checkout <branch>
+```
+
+-b 옵션을 이용하면 새로운 브랜치를 생성하고 생성한 브랜치로 변경한다.
+
+```bash
+git checkout -b <new_branch>
+```
+
+## git switch
+
+git switch 명령어를 통해서도 브랜치를 변경할 수 있다. git에서 브랜치는 변경하는 최신 문법이다. 동작은 git checkout과 유사하다.
+
+```bash
+git switch <branch>
+```
+
+-c 옵션을 이용하면 새로운 브랜치를 생성하고 생성한 브랜치로 변경한다.
+
+```bash
+git switch -c <new_branch>
+```
