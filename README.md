@@ -131,3 +131,21 @@ git switch <branch>
 ```bash
 git switch -c <new_branch>
 ```
+
+# Merge 동작
+
+Git에서는 branch끼리 달라진 변경사항을 다시 하나로 병합할 수 있다.
+병합을 시도하는 브랜치를 base, 병합의 대상이 되는 브랜치를 target이라고 할 때 base와 target이 분기되는 source 커밋에 따라 머지 방식이 달라진다.
+
+1. **Fast foward**
+
+   source에서 base 브랜치가 변경되지 않은 경우이다. base가 가리키는 커밋을 target에서 가리키는 커밋으로 변경만 하면 된다.
+
+2. **3-way merge**
+
+   두 브랜치 모두 source 이후에 따로 커밋을 수행한 경우에는 두 브랜치가 가리키는 커밋을 각각 참조하여 새로운 커밋을 만들어서 브랜치가 기리키는 커밋을 변경한다.
+
+## git merge
+
+git merge 명령어를 통해 다른 브랜치의 변경사항을 현재 브랜치에 반영할 수 있다.
+git merge를 수행하면 두 브랜치 변경사항이 합쳐진 새로운 커밋이 생성되고, 현재 브랜치는 해당 커밋을 가리키게 된다. target 브랜치의 커밋 히스토리는 base 브랜치에 추가되지 않는다.
