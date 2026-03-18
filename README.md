@@ -214,6 +214,38 @@ rebase 명령어의 경우 머지된 흔적이 없이 처음부터 하나의 브
 
 # 변경사항 되돌리기
 
+## git revert
+
+git revert를 이용하면 특정 버전의 커밋으로 파일을 되돌리는 새로운 커밋을 생성할 수 있다.
+
+```bash
+git revert <target_commit>
+```
+
 ## git reset
 
-git reset을 이용해 현재
+git reset을 이용하면 현재 HEAD를 특정 버전의 커밋으로 되돌릴 수 있다.
+_\* 기존에 작성한 커밋 내역이 바로 사라지지는 않으므로 git reflog 명령어를 통해 유실된 커밋 내역을 조회할 수 있다._
+
+### mixed 옵션
+
+git reset에 아무 옵션도 주지 않았을 때 적용되는 기본 옵션이다. 특정 버전의 커밋으로 되돌리면서 staging area의 상태도 해당 커밋 기준으로 초기화된다.
+
+```bash
+git reset <target_commit>
+git reset --mixed <target_commit>
+```
+
+### soft 옵션
+
+soft 옵션을 이용하면 mixed 옵션과 유사하게 동작하지만, staging area는 변하지 않는다.
+
+### hard 옵션
+
+hard 옵션을 적용하면 HEAD를 특정 버전의 커밋으로 되돌리면서, 동시에 변경한 파일들도 해당 커밋의 상태로 초기화할 수 있다. 기존 작업 내용이 모두 사라질 수 있으므로 사용에 주의해야 한다.
+
+_\* 단, 돌아간 커밋 시점에서 아직 추적되고 있지 않았던 파일들은 삭제되거나 초기화되지 않는다. 예를 들어 커밋 이후 새로 생성해서 작성한 파일들은 hard 옵션을 이용해서 reset해도 변경되지 않고 그대로 남아 있는다._
+
+```bash
+git reset --hard <target_commit>
+```
