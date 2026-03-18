@@ -232,13 +232,16 @@ _\* 기존에 작성한 커밋 내역이 바로 사라지지는 않으므로 git
 git reset에 아무 옵션도 주지 않았을 때 적용되는 기본 옵션이다. 특정 버전의 커밋으로 되돌리면서 staging area의 상태도 해당 커밋 기준으로 초기화된다.
 
 ```bash
-git reset <target_commit>
-git reset --mixed <target_commit>
+git reset [--mixed] <target_commit>
 ```
 
 ### soft 옵션
 
-soft 옵션을 이용하면 mixed 옵션과 유사하게 동작하지만, staging area는 변하지 않는다.
+soft 옵션을 이용하면 mixed 옵션과 유사하게 동작하지만, staging area는 변하지 않는다. staging area에 있던 파일들이 soft reset 후에 git status로 조회해도 그대로 남아 있는 것을 볼 수 있다.
+
+```bash
+git reset --soft <target_commit>
+```
 
 ### hard 옵션
 
