@@ -196,10 +196,10 @@ A(base) -> A+B -------------> D(source)
    -> A+C1 -> A+C2(target)
 
 # (source) git rebase target
-# C1, C2 커밋의 변경을 B에서부터 차례로 반영함
-A(base) -> A+B -> A+B+C1 -> A+B+C1+C2(source)
+# source에서 변경한 커밋 변경사항들을 target 커밋에서부터 차례로 적용
+A(base) -> A+B(source:before)
  \
-   -> A+C1 -> A+C1+C2(target)
+   -> A+C1 -> A+C1+C2(target) -> A+C1+C2+B(source)
 ```
 
 ### git merge vs git rebase
