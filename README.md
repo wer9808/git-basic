@@ -37,6 +37,16 @@ git restore <path>
 git restore --staged <path>
 ```
 
+## git clean
+
+git clean 명령어를 통해 staging area에 추가되지 않은 모든 tracked 파일 변경사항을 되돌릴 수 있다.
+
+_\* tracked : 현재 HEAD 커밋 히스토리에서 커밋된 적 있는 파일들. git에서 변경사항을 추적하고 있는 파일들을 말한다._
+
+```bash
+git clean
+```
+
 ## git commit
 
 git commit 명령어를 통해 현재 staging area에 있는 파일 변경사항들을 커밋할 수 있다. unix shell에서 커밋을 실행하면 커밋 메세지를 작성할 수 있는 에디터에 진입한다.
